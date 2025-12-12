@@ -1,0 +1,644 @@
+{
+    "actionList": [
+        {
+            "elementTrigger": "",
+            "enabled": true,
+            "eventTrigger": "appSent",
+            "status": "Sent",
+            "trigger": "change",
+            "type": "setAppStatus"
+        },
+        {
+            "elementTrigger": "",
+            "enabled": true,
+            "eventTrigger": "customerDisconnected",
+            "status": "Disconnected",
+            "trigger": "change",
+            "type": "setAppStatus"
+        },
+        {
+            "elementTrigger": "",
+            "enabled": true,
+            "eventTrigger": "appLocked",
+            "status": "Locked",
+            "trigger": "change",
+            "type": "setAppStatus"
+        },
+        {
+            "elementTrigger": "",
+            "enabled": true,
+            "eventTrigger": "appUnlocked",
+            "status": "Unlocked",
+            "trigger": "change",
+            "type": "setAppStatus"
+        },
+        {
+            "elementTrigger": "my_card",
+            "enabled": true,
+            "eventTrigger": "valueChanged",
+            "snippetCode": "var full = app.elements.full_name.value\ncustomer.setDisplayName(full)\n\nstore.save(\"customer\", \"local\", app.elements.local.value)\nstore.save(\"customer\", \"member_id\", app.elements.member_id.value)\n\napp.activatePane(\"PANE_2\")\n\napp.hideElements([\"my_card\"])",
+            "trigger": "always",
+            "type": "actionSnippet"
+        },
+        {
+            "elementTrigger": "get_card",
+            "enabled": true,
+            "eventTrigger": "valueChanged",
+            "snippetCode": "var inviteUrl = store.customer.inviteUrl\n\nplatform.openWebsite(inviteUrl, \"Download Wallet Card\")",
+            "trigger": "paneValid",
+            "type": "actionSnippet"
+        }
+    ],
+    "byoCss": "",
+    "displayList": [
+        {
+            "allowDismiss": false,
+            "elementList": [
+                {
+                    "actionList": [
+                    ],
+                    "detail": {
+                        "agentCanEdit": false,
+                        "agentMasked": false,
+                        "customerCanEdit": true,
+                        "elementValidation": {
+                            "maxLength": 0,
+                            "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                            "minLength": 0,
+                            "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                            "regex": "",
+                            "regexErrorMessage": "",
+                            "required": true,
+                            "requiredErrorMessage": "This is required",
+                            "saveWhenMinLengthIsMet": false,
+                            "snippet": "",
+                            "validateMaxLength": false,
+                            "validateMinLength": false,
+                            "validateRegex": false,
+                            "validateSnippet": false
+                        },
+                        "everyoneMasked": false,
+                        "isTransient": false,
+                        "label": "Full Name",
+                        "labelInline": false,
+                        "maxLength": 256,
+                        "placeholder": "",
+                        "required": false,
+                        "type": "singleLineInput"
+                    },
+                    "id": "full_name",
+                    "initiallyEnabled": true,
+                    "initiallyVisible": true,
+                    "innerStyles": {
+                        "backgroundColor": "#FFFFFF",
+                        "backgroundImage": "",
+                        "borderColor": "#ccc",
+                        "borderRadius": "4px",
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "color": "#333333",
+                        "elementClass": "",
+                        "fontSize": "13px",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "labelClass": "",
+                        "textAlign": "left"
+                    },
+                    "nested": false,
+                    "outerStyles": {
+                        "marginLeft": "0",
+                        "marginRight": "0",
+                        "marginTop": "0",
+                        "paddingBottom": "0",
+                        "paddingLeft": "0",
+                        "paddingRight": "0",
+                        "paddingTop": "0",
+                        "width": "100%"
+                    },
+                    "since": 0,
+                    "tooltip": ""
+                },
+                {
+                    "actionList": [
+                    ],
+                    "detail": {
+                        "agentCanEdit": false,
+                        "agentMasked": false,
+                        "customerCanEdit": true,
+                        "elementValidation": {
+                            "maxLength": 0,
+                            "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                            "minLength": 0,
+                            "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                            "regex": "",
+                            "regexErrorMessage": "",
+                            "required": true,
+                            "requiredErrorMessage": "This is required",
+                            "saveWhenMinLengthIsMet": false,
+                            "snippet": "",
+                            "validateMaxLength": false,
+                            "validateMinLength": false,
+                            "validateRegex": false,
+                            "validateSnippet": false
+                        },
+                        "label": "Your Local Union",
+                        "labelInline": false,
+                        "loadOptionsFromAction": false,
+                        "noMatchAction": "error",
+                        "noOptionText": "No Options",
+                        "options": [
+                            {
+                                "label": "123",
+                                "since": 0,
+                                "value": "123"
+                            },
+                            {
+                                "label": "456",
+                                "since": 0,
+                                "value": "456"
+                            },
+                            {
+                                "label": "789",
+                                "since": 0,
+                                "value": "789"
+                            }
+                        ],
+                        "optionsCaption": "Select...",
+                        "optionsDelimiter": "comma",
+                        "optionsRaw": "123,456,789",
+                        "required": false,
+                        "type": "filterableMenu"
+                    },
+                    "id": "local",
+                    "initiallyEnabled": true,
+                    "initiallyVisible": true,
+                    "innerStyles": {
+                        "backgroundColor": "#FFFFFF",
+                        "backgroundImage": "",
+                        "borderColor": "#333",
+                        "borderRadius": "0px",
+                        "borderStyle": "solid",
+                        "borderWidth": "0px",
+                        "color": "#333333",
+                        "elementClass": "",
+                        "fontSize": "13px",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "labelClass": "",
+                        "textAlign": "left"
+                    },
+                    "nested": false,
+                    "outerStyles": {
+                        "marginLeft": "0",
+                        "marginRight": "0",
+                        "marginTop": "0",
+                        "paddingBottom": "0",
+                        "paddingLeft": "0",
+                        "paddingRight": "0",
+                        "paddingTop": "0",
+                        "width": "100%"
+                    },
+                    "since": 0,
+                    "tooltip": ""
+                },
+                {
+                    "actionList": [
+                    ],
+                    "detail": {
+                        "agentCanEdit": false,
+                        "agentMasked": false,
+                        "customerCanEdit": true,
+                        "elementValidation": {
+                            "maxLength": 0,
+                            "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                            "minLength": 0,
+                            "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                            "regex": "",
+                            "regexErrorMessage": "",
+                            "required": false,
+                            "requiredErrorMessage": "This is required",
+                            "saveWhenMinLengthIsMet": false,
+                            "snippet": "",
+                            "validateMaxLength": false,
+                            "validateMinLength": false,
+                            "validateRegex": false,
+                            "validateSnippet": false
+                        },
+                        "everyoneMasked": false,
+                        "isTransient": false,
+                        "label": "Your Union Member ID Number",
+                        "labelInline": false,
+                        "maxLength": 256,
+                        "placeholder": "XXXXXXXX",
+                        "required": false,
+                        "type": "singleLineInput"
+                    },
+                    "id": "member_id",
+                    "initiallyEnabled": true,
+                    "initiallyVisible": true,
+                    "innerStyles": {
+                        "backgroundColor": "#FFFFFF",
+                        "backgroundImage": "",
+                        "borderColor": "#ccc",
+                        "borderRadius": "4px",
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "color": "#333333",
+                        "elementClass": "",
+                        "fontSize": "13px",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "labelClass": "",
+                        "textAlign": "left"
+                    },
+                    "nested": false,
+                    "outerStyles": {
+                        "marginLeft": "0",
+                        "marginRight": "0",
+                        "marginTop": "0",
+                        "paddingBottom": "0",
+                        "paddingLeft": "0",
+                        "paddingRight": "0",
+                        "paddingTop": "0",
+                        "width": "100%"
+                    },
+                    "since": 0,
+                    "tooltip": ""
+                },
+                {
+                    "actionList": [
+                    ],
+                    "detail": {
+                        "generatedHtml": "<p><em>Leave union number blank if you have not been issued a member ID number, or if you do not know it.</em></p>\n",
+                        "text": "*Leave union number blank if you have not been issued a member ID number, or if you do not know it.*",
+                        "type": "markdown"
+                    },
+                    "id": "label_3",
+                    "initiallyEnabled": true,
+                    "initiallyVisible": true,
+                    "innerStyles": {
+                        "backgroundColor": "rgba(255, 255, 255, 0)",
+                        "backgroundImage": "",
+                        "borderColor": "#333",
+                        "borderRadius": "0px",
+                        "borderStyle": "solid",
+                        "borderWidth": "0px",
+                        "color": "#333333",
+                        "elementClass": "",
+                        "fontSize": "13px",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "labelClass": "",
+                        "textAlign": "left"
+                    },
+                    "nested": false,
+                    "outerStyles": {
+                        "marginLeft": "0",
+                        "marginRight": "0",
+                        "marginTop": "0",
+                        "paddingBottom": "0",
+                        "paddingLeft": "0",
+                        "paddingRight": "0",
+                        "paddingTop": "0",
+                        "width": "100%"
+                    },
+                    "since": 0,
+                    "tooltip": ""
+                }
+            ],
+            "id": "PANE_1",
+            "innerStyles": {
+                "backgroundColor": "rgba(255, 255, 255, 1)",
+                "backgroundImage": "",
+                "borderColor": "#333",
+                "borderRadius": "0px",
+                "borderStyle": "solid",
+                "borderWidth": "0px",
+                "color": "#333333",
+                "fontSize": "13px",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "textAlign": "left"
+            },
+            "validation": {
+                "asYouGo": true,
+                "errorMessage": "Please see errors above before continuing.",
+                "snippet": "",
+                "usingSnippet": false
+            }
+        },
+        {
+            "allowDismiss": false,
+            "elementList": [
+                {
+                    "actionList": [
+                    ],
+                    "detail": {
+                        "agentCanEdit": false,
+                        "agentMasked": false,
+                        "buttonClass": "InteractiveButton",
+                        "customerCanEdit": true,
+                        "elementValidation": {
+                            "maxLength": 0,
+                            "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                            "minLength": 0,
+                            "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                            "regex": "",
+                            "regexErrorMessage": "",
+                            "required": false,
+                            "requiredErrorMessage": "This is required",
+                            "saveWhenMinLengthIsMet": false,
+                            "snippet": "",
+                            "validateMaxLength": false,
+                            "validateMinLength": false,
+                            "validateRegex": false,
+                            "validateSnippet": false
+                        },
+                        "label": "Request &amp; Download Card",
+                        "required": false,
+                        "type": "button"
+                    },
+                    "id": "get_card",
+                    "initiallyEnabled": true,
+                    "initiallyVisible": true,
+                    "innerStyles": {
+                        "backgroundColor": "#598EC7",
+                        "backgroundImage": "",
+                        "borderColor": "#333",
+                        "borderRadius": "3px",
+                        "borderStyle": "solid",
+                        "borderWidth": "0px",
+                        "color": "#FFFFFF",
+                        "elementClass": "",
+                        "fontSize": "14px",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "labelClass": "",
+                        "textAlign": "center",
+                        "width": "100%"
+                    },
+                    "nested": false,
+                    "outerStyles": {
+                        "marginLeft": "0",
+                        "marginRight": "0",
+                        "marginTop": "0",
+                        "paddingBottom": "0",
+                        "paddingLeft": "0",
+                        "paddingRight": "0",
+                        "paddingTop": "0",
+                        "width": "100%"
+                    },
+                    "since": 0,
+                    "tooltip": ""
+                }
+            ],
+            "id": "PANE_2",
+            "innerStyles": {
+                "backgroundColor": "rgba(255, 255, 255, 1)",
+                "backgroundImage": "",
+                "borderColor": "#333",
+                "borderRadius": "0px",
+                "borderStyle": "solid",
+                "borderWidth": "0px",
+                "color": "#333333",
+                "fontSize": "13px",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "textAlign": "left"
+            },
+            "validation": {
+                "asYouGo": true,
+                "errorMessage": "Please see errors above before continuing.",
+                "snippet": "",
+                "usingSnippet": false
+            }
+        }
+    ],
+    "externalDataList": [
+    ],
+    "footer": {
+        "allPanes": true,
+        "elementList": [
+            {
+                "actionList": [
+                ],
+                "detail": {
+                    "agentCanEdit": false,
+                    "agentMasked": false,
+                    "buttonClass": "InteractiveButton",
+                    "customerCanEdit": true,
+                    "elementValidation": {
+                        "maxLength": 0,
+                        "maxLengthErrorMessage": "This field does not accept more than {$count} characters.",
+                        "minLength": 0,
+                        "minLengthErrorMessage": "This field requires at least {$count} characters.",
+                        "regex": "",
+                        "regexErrorMessage": "",
+                        "required": false,
+                        "requiredErrorMessage": "This is required",
+                        "saveWhenMinLengthIsMet": false,
+                        "snippet": "",
+                        "validateMaxLength": false,
+                        "validateMinLength": false,
+                        "validateRegex": false,
+                        "validateSnippet": false
+                    },
+                    "label": "Next",
+                    "required": false,
+                    "type": "button"
+                },
+                "id": "my_card",
+                "initiallyEnabled": true,
+                "initiallyVisible": true,
+                "innerStyles": {
+                    "backgroundColor": "#598EC7",
+                    "backgroundImage": "",
+                    "borderColor": "#333",
+                    "borderRadius": "3px",
+                    "borderStyle": "solid",
+                    "borderWidth": "0px",
+                    "color": "#FFFFFF",
+                    "elementClass": "",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "labelClass": "",
+                    "textAlign": "center",
+                    "width": "100%"
+                },
+                "nested": false,
+                "outerStyles": {
+                    "marginLeft": "0",
+                    "marginRight": "0",
+                    "marginTop": "0",
+                    "paddingBottom": "0",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "paddingTop": "0",
+                    "width": "100%"
+                },
+                "since": 0,
+                "tooltip": ""
+            }
+        ],
+        "id": "cb_footer",
+        "innerStyles": {
+            "backgroundColor": "rgba(255, 255, 255, 1)",
+            "backgroundImage": "",
+            "borderColor": "rgba(221, 221, 221, 1)",
+            "borderRadius": "0px",
+            "borderStyle": "solid",
+            "borderWidth": "1px 0px 0px 0px",
+            "color": "#333333",
+            "fontSize": "13px",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "textAlign": "left"
+        },
+        "onlyPanes": [
+        ]
+    },
+    "general": {
+        "author": "Dan Tramte",
+        "created": "2025-12-01T09:34:04-05:00",
+        "defaultHeight": 0,
+        "icon": "/chatbox2/upload?t=_cT3Ag6sArMMobfCGhU66w4mt-9kh6aup-nqxNg.&k=public%2FO1587%2Fschema%2FTNNF%2FH9oX%2FRQjOFs1tEPhSDsK0KtvmobBlzZRQNJYDv_o7GmmplduFB3jyu29yXUvgmcPYazSA6BQCM_GegCgUBA%3D%3D%2FUnion_Logo.png",
+        "initiallyHidden": false,
+        "inviteMessageList": [
+            "To receive your Provisional Member ID card, please follow this link: {link}"
+        ],
+        "name": "Member Card Request",
+        "previewIcon": "/chatbox2/upload?t=w7_4Ag7fArMMjagZM6WCzmqcq-pN5E11A7qVzVI.&k=public%2FO1587%2Fschema%2FsMBQ%2FZn0c%2FjqoDjpBiaZaLwP2zcAyJBE-TRQ8kDm2SbM2-DwMzEiqjLI-c2ohzhMxDi0y-3oi8MICV_xl4zXjZqw%3D%3D%2FYour%2520paragraph%2520text%2520%2813%29.png",
+        "sortOrder": 0
+    },
+    "header": {
+        "allPanes": true,
+        "elementList": [
+            {
+                "actionList": [
+                ],
+                "detail": {
+                    "src": "/chatbox2/upload?t=wr_4Ag7eArMMAQlkDBcjEBWpIbO_n9ae42iKIsM.&k=public%2FO1587%2Fschema%2FxWef%2FqH_d%2FDVTgaXPNYf-o8LUILdD0g2bC77t8J-_uPpOZ-QI6nOCi9gnSys7yb2At33dK916JMZnH-NCcjjm9QA%3D%3D%2FYour%2520paragraph%2520text%2520%2813%29.png",
+                    "type": "image"
+                },
+                "id": "image_1",
+                "initiallyEnabled": true,
+                "initiallyVisible": true,
+                "innerStyles": {
+                    "backgroundColor": "#FFFFFF",
+                    "backgroundImage": "",
+                    "borderColor": "#333",
+                    "borderRadius": "0px",
+                    "borderStyle": "solid",
+                    "borderWidth": "0px",
+                    "color": "#333333",
+                    "elementClass": "",
+                    "fontSize": "13px",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "labelClass": "",
+                    "textAlign": "left",
+                    "width": "100%"
+                },
+                "nested": false,
+                "outerStyles": {
+                    "marginLeft": "0",
+                    "marginRight": "0",
+                    "marginTop": "0",
+                    "paddingBottom": "0",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "paddingTop": "0",
+                    "width": "100%"
+                },
+                "since": 0,
+                "tooltip": ""
+            },
+            {
+                "actionList": [
+                ],
+                "detail": {
+                    "generatedHtml": "<p>Get Your Provisional Member Card TODAY!</p>\n",
+                    "text": "Get Your Provisional Member Card TODAY!",
+                    "type": "markdown"
+                },
+                "id": "label_4",
+                "initiallyEnabled": true,
+                "initiallyVisible": true,
+                "innerStyles": {
+                    "backgroundColor": "rgba(255, 255, 255, 0)",
+                    "backgroundImage": "",
+                    "borderColor": "#333",
+                    "borderRadius": "0px",
+                    "borderStyle": "solid",
+                    "borderWidth": "0px",
+                    "color": "#333333",
+                    "elementClass": "",
+                    "fontSize": "13px",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "labelClass": "",
+                    "textAlign": "left"
+                },
+                "nested": false,
+                "outerStyles": {
+                    "marginLeft": "0",
+                    "marginRight": "0",
+                    "marginTop": "0",
+                    "paddingBottom": "0",
+                    "paddingLeft": "0",
+                    "paddingRight": "0",
+                    "paddingTop": "0",
+                    "width": "100%"
+                },
+                "since": 0,
+                "tooltip": ""
+            }
+        ],
+        "id": "cb_header",
+        "innerStyles": {
+            "backgroundColor": "rgba(255, 255, 255, 1)",
+            "backgroundImage": "",
+            "borderColor": "rgba(221, 221, 221, 1)",
+            "borderRadius": "0px",
+            "borderStyle": "solid",
+            "borderWidth": "0px 0px 1px 0px",
+            "color": "#333333",
+            "fontSize": "13px",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "textAlign": "left"
+        },
+        "onlyPanes": [
+        ]
+    },
+    "platform": {
+        "active": true,
+        "apiId": "copy_of_personalized_card_invite",
+        "build": 21,
+        "builder": {
+            "editCount": 520
+        },
+        "groups": [
+        ],
+        "id": 64,
+        "permissionType": "everyone",
+        "scope": 1,
+        "tagList": [
+        ],
+        "trashed": false
+    },
+    "snippetList": [
+        {
+            "eventNameTrigger": "gotInvite",
+            "eventTrigger": "callback",
+            "snippetCode": "var url = returnData.replace(/\"/g, \"\");\nstore.save(\"customer\", \"inviteUrl\", url)"
+        },
+        {
+            "elementTrigger": "",
+            "eventTrigger": "customerConnected",
+            "snippetCode": "// set the wallet card ID and invitation ID below:\nvar walletCardId = 49\nvar walletCardInvitationId = 30\n\n\napp.setAppStatus(\"Connected\")\n\nplatform.api.wallets.getPersonalizedWalletCardInvitation(\n   {walletCardId:walletCardId, walletCardInvitationId:walletCardInvitationId, customerId:store.conversation.customerId},\n   {},\n   {eventName:\"gotInvite\"}\n)\n\n\n"
+        }
+    ],
+    "version": 9
+}
